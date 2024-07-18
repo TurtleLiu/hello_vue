@@ -13,7 +13,7 @@ def check_description_in_file(file_path):
                 pass_count += 1
             else:
                 print("文本输入：测试不通过❌")
-            if 'img' in content:
+            if 'imageUrl' in content:
                 print("图片输入：测试通过✅")
                 pass_count += 1
             else:
