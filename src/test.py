@@ -17,7 +17,7 @@ def check_description_in_file(file_path):
                 print("图片输入：测试通过✅")
                 pass_count += 1
             else:
-                print("文本输入：测试不通过❌")
+                print("图片输入：测试不通过❌")
             if 'video' in content:
                 print("视频输入：测试通过✅")
                 pass_count += 1
