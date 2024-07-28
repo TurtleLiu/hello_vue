@@ -7,8 +7,7 @@
         </div>
         <input type="text" placeholder="请输入事件标题" name="title" v-model="userForm.title"/>
         <input type="text" placeholder="请输入事件描述" name="description" v-model="userForm.description" />
-        <input type="file" @change="(e) => handleImageUpload(e)" class="file-input" />
-        <img :src="imageUrl" v-if="imageUrl">
+        <button @click="(e) => handleAdd(e)">添加图片</button>
         <span class="button">
           <button type="submit">上报事件</button>
           <button type="reset" @click="(e) => handleReset(e)">重置</button>
@@ -36,12 +35,22 @@ const imageUrl = ref(null)
  * @description:处理点击注册事件
  * @param {*} e 事件对象
  */
-const handleSubmit = async (e) => {
+const handleAdd = async (e) => {
+  e.preventDefault()
+  openNotificationWithIcon('error', '添加图片功能尚未实现！')
+}
+
+/**
+ * @description:处理点击添加图片事件
+ * @param {*} e 事件对象
+ */
+ const handleSubmit = async (e) => {
   e.preventDefault()
   if (handleValidation(userForm)) {
    openNotificationWithIcon('success', '事件上报成功！')
   }
 }
+
 /**
  * @description: 校验登录信息表单
  * @param {Object} form 登录信息表单
