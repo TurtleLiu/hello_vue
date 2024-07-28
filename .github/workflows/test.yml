@@ -1,0 +1,14 @@
+name: Build and Test
+on: [push]
+permissions:
+  contents: write
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Run tests!🛎️
+        run: python src/test.py
