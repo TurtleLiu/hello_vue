@@ -7,8 +7,6 @@
         </div>
         <input type="text" placeholder="请输入事件标题" name="title" v-model="userForm.title"/>
         <input type="text" placeholder="请输入事件描述" name="description" v-model="userForm.description" />
-        <input type="file" @change="(e) => handleImageUpload(e)" class="file-input" />
-        <img :src="imageUrl" v-if="imageUrl">
         <span class="button">
           <button type="submit">上报事件</button>
           <button type="reset" @click="(e) => handleReset(e)">重置</button>
@@ -28,9 +26,6 @@ const userForm = ref({
   title: '',
   description: ''
 })
-
-// 图片
-const imageUrl = ref(null)
 
 /**
  * @description:处理点击注册事件
@@ -54,20 +49,6 @@ const handleValidation = (form) => {
   }
   return true
 }
-
-const handleImageUpload = (e) => {
-  const file = e.target.files[0]
-  //console.log(file)
-  if (!file) return
-  const reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onload = () => {
-    imageUrl.value = reader.result
-  }
-}
-
-
-
 /**
  * @description: AntDesign的api，显示弹窗信息
  * @param {string} type 图标，可选值有success、info、warning、error
@@ -131,17 +112,6 @@ const handleReset = (e) => {
         border: 0.1rem solid rgb(100, 182, 135);
         outline: none;
       }
-    }
-    .file-input{
-      background-color: transparent;
-      padding: 1rem;
-      border: 0rem;
-      width: 100%;
-    }
-    img{
-      height: 10rem;
-      width: 10rem;
-      display: block;
     }
     .button {
       display: grid;
