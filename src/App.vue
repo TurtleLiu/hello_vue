@@ -7,7 +7,6 @@
         </div>
         <input type="text" placeholder="请输入事件标题" name="title" v-model="userForm.title"/>
         <input type="text" placeholder="请输入事件描述" name="description" v-model="userForm.description" />
-        <button @click="(e) => handleAdd(e)">添加图片</button>
         <span class="button">
           <button type="submit">上报事件</button>
           <button type="reset" @click="(e) => handleReset(e)">重置</button>
@@ -32,22 +31,12 @@ const userForm = ref({
  * @description:处理点击注册事件
  * @param {*} e 事件对象
  */
-const handleAdd = async (e) => {
-  e.preventDefault()
-  openNotificationWithIcon('error', '添加图片功能尚未实现！')
-}
-
-/**
- * @description:处理点击添加图片事件
- * @param {*} e 事件对象
- */
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault()
   if (handleValidation(userForm)) {
    openNotificationWithIcon('success', '事件上报成功！')
   }
 }
-
 /**
  * @description: 校验登录信息表单
  * @param {Object} form 登录信息表单
@@ -60,11 +49,6 @@ const handleValidation = (form) => {
   }
   return true
 }
-
-
-
-
-
 /**
  * @description: AntDesign的api，显示弹窗信息
  * @param {string} type 图标，可选值有success、info、warning、error
@@ -128,17 +112,6 @@ const handleReset = (e) => {
         border: 0.1rem solid rgb(100, 182, 135);
         outline: none;
       }
-    }
-    .file-input{
-      background-color: transparent;
-      padding: 1rem;
-      border: 0rem;
-      width: 100%;
-    }
-    img{
-      height: 10rem;
-      width: 10rem;
-      display: block;
     }
     .button {
       display: grid;
