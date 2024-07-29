@@ -28,9 +28,6 @@ const userForm = ref({
   description: ''
 })
 
-// 图片
-const imageUrl = ref(null)
-
 /**
  * @description:处理点击注册事件
  * @param {*} e 事件对象
@@ -64,16 +61,7 @@ const handleValidation = (form) => {
   return true
 }
 
-const handleImageUpload = (e) => {
-  const file = e.target.files[0]
-  //console.log(file)
-  if (!file) return
-  const reader = new FileReader()
-  reader.readAsDataURL(file)
-  reader.onload = () => {
-    imageUrl.value = reader.result
-  }
-}
+
 
 
 
