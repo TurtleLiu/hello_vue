@@ -17,6 +17,9 @@
 </template>
 
 <script setup>
+import HelloWorld from './components/HelloWorld.vue'
+import TheWelcome from './components/TheWelcome.vue'
+</script>
 
 import { ref } from 'vue'
 import { notification } from 'ant-design-vue'
@@ -60,40 +63,20 @@ const openNotificationWithIcon = (type, message) => {
     description: ''
   })
 }
-/**
- * @description: 处理点击重置事件
- * @param {*} e
- */
-const handleReset = (e) => {
-  e.preventDefault()
-  userForm.value = { title: '', description: '' }
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
 }
-</script>
-
-<style lang="scss" scoped>
-.FormContainer {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  align-items: center;
-  background-color: white;
-  .brand {
+@media (min-width: 1024px) {
+  header {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-    img {
-      height: 5rem;
-    }
-    h1 {
-      color: black;
-      text-transform: uppercase;
-    }
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
   }
-  form {
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+  header .wrapper {
     display: flex;
     flex-direction: column;
     gap: 2rem;
